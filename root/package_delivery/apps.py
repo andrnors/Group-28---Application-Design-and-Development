@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class MusicSchoolConfig(AppConfig):
-    name = 'music_school'
+    name = 'package_delivery'
