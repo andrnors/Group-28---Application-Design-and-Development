@@ -104,7 +104,18 @@ namespace Team28Delivery.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    FirtName = model.FirstName,
+                    LastName = model.LastName,
+                    UserName = model.Username,
+                    Email = model.Email,
+                    StreetAddress = model.StreetAddress,
+                    PostalCode = model.PostalCode,
+                    Suburb = model.Suburb,
+                    State = model.State,
+                    Country = model.Country
+                };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
