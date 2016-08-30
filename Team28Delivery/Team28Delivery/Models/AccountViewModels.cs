@@ -73,10 +73,6 @@ namespace Team28Delivery.Models
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Username")]
-        public string Username { get; set; }
-
-        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -95,7 +91,7 @@ namespace Team28Delivery.Models
         [Required]
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone number")]
-        public string PhoneNumber { get; set; }
+        public string Phone { get; set; }
 
         [Required]
         [Display(Name = "Street address")]
