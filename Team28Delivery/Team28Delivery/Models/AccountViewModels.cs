@@ -65,6 +65,18 @@ namespace Team28Delivery.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +91,33 @@ namespace Team28Delivery.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone number")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
+        [Display(Name = "Street address")]
+        public string StreetAddress { get; set; }
+
+        [Required]
+        [Display(Name = "Suburb")]
+        public string Suburb { get; set; }
+
+        [Required]
+        [DataType(DataType.PostalCode)]
+        [Display(Name = "Postal code")]
+        public string PostalCode { get; set; }
+
+        [Required]
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Required]
+        [Display(Name = "Country")]
+        public string Country { get; set; }
+
     }
 
     public class ResetPasswordViewModel
