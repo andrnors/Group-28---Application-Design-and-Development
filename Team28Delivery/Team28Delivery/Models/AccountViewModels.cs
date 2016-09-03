@@ -114,6 +114,10 @@ namespace Team28Delivery.Models
         [Display(Name = "Country")]
         public string Country { get; set; }
 
+        [Required]
+        [Display(Name = "User Type")]
+        public string UserType { get; set; }
+
     }
 
     public class ResetPasswordViewModel

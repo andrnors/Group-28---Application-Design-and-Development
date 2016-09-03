@@ -18,6 +18,7 @@ namespace Team28Delivery.Models
         public string State { get; set; }
         public string Country { get; set; }
 
+       
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
