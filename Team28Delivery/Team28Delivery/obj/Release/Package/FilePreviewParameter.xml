@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Team28Delivery" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Andreas\\OneDrive\\Group-28---Application-Design-and-Development\\Team28Delivery\\Team28Delivery\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Andreas\\OneDrive\\Group-28---Application-Design-and-Development\\Team28Delivery\\Team28Delivery\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-Team28Delivery-20160830124644.mdf;Initial Catalog=aspnet-Team28Delivery-20160830124644;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andreas\\OneDrive\\Group-28---Application-Design-and-Development\\Team28Delivery\\Team28Delivery\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>
