@@ -17,8 +17,9 @@ namespace Team28Delivery.Models
         public string PostalCode { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
+        public string UserType { get; set; }
 
-       
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

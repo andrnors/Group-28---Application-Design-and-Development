@@ -379,6 +379,5 @@ C:\Users\hazel\Desktop\Group-28---Application-Design-and-Development-master\Team
 C:\Users\hazel\Desktop\Group-28---Application-Design-and-Development-master\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\hazel\Desktop\Group-28---Application-Design-and-Development-master\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\hazel\Desktop\Group-28---Application-Design-and-Development-master\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\hazel\Desktop\Group-28---Application-Design-and-Development-master\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache
 C:\Users\hazel\Desktop\Group-28---Application-Design-and-Development-master\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.dll
 C:\Users\hazel\Desktop\Group-28---Application-Design-and-Development-master\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.pdb
