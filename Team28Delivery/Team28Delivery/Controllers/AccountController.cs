@@ -17,7 +17,7 @@ namespace Team28Delivery.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ApplicationDbContext db = new ApplicationDbContext();
         public AccountController()
         {
         }
@@ -151,17 +151,25 @@ namespace Team28Delivery.Controllers
         {
             if (ModelState.IsValid)
             {
+                var address = new Address
+                {
+                    StreetAddress = model.StreetAddress,
+                    Suburb = model.Suburb,
+                    PostalCode = model.PostalCode,
+                    State = model.State,
+                    Country = model.Country
+                };
+                db.Addresses.Add(address);
+                db.SaveChanges();
+
+
                 var user = new ApplicationUser {
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Phone = model.Phone,
-                    StreetAddress = model.StreetAddress,
-                    Suburb = model.Suburb,
-                    PostalCode = model.PostalCode,
-                    State = model.State,
-                    Country = model.Country
+                    AddressID = address.AddressID
                     };
 
 
