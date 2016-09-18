@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace Team28Delivery.Models
 {
@@ -12,12 +14,12 @@ namespace Team28Delivery.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Phone { get; set; }
-        public string StreetAddress { get; set; }
-        public string Suburb { get; set; }
-        public string PostalCode { get; set; }
-        public string State { get; set; }
-        public string Country { get; set; }
+        [ForeignKey("Address")]
+        public int AddressID { get; set; }
 
+        public virtual Addresses Address { get; set; }
+        public virtual IList<Packages> Packages { get; set; }
+        public virtual Employees Employee { get; set; }    
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -34,6 +36,10 @@ namespace Team28Delivery.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<Addresses> Addresses { get; set; }
+        public DbSet<Employees> Employees { get; set; }
+        public DbSet<Packages> Packages { get; set; }
+        public DbSet<Orders> Orders { get; set; }
 
         public static ApplicationDbContext Create()
         {
