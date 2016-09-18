@@ -19,7 +19,6 @@ namespace Team28Delivery.Models
         public string ReadyForPickUpTime { get; set; }
         public string WarehouseArrivalTime { get; set; }
         public string OrderStatus { get; set; }
-        public string PaymentType { get; set; }
         public string OrderPriority { get; set; }
         public string WarehouseDepartureTime { get; set; }
         
@@ -62,7 +61,7 @@ namespace Team28Delivery.Models
         [ForeignKey("Order")]
         public int OrderID { get; set; }
         public string RecieversName { get; set; }
-        public string Weight { get; set; }
+        public double Weight { get; set; }
         public string SpecialInfo { get; set; }
         public int RecieverAddressID { get; set; }
         public double Cost { get; set; }

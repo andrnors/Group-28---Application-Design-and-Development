@@ -65,11 +65,15 @@ namespace Team28Delivery.Models
     {
         
         [Display(Name = "Special info")]
-        public string specialInfo { get; set; }
+        public string SpecialInfo { get; set; }
 
         [Required]
         [Display(Name = "Weight")]
         public double Weight { get; set; }
+
+        [Required]
+        [Display(Name = "Priority")]
+        public string Priority { get; set; }
 
         [Required]
         [Display(Name = "Reciever Name")]
