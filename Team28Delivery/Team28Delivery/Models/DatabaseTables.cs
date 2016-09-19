@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+// All tables for the database are defined here, EXCEPT Users table, that is in IdentityModels
 namespace Team28Delivery.Models
 {
+    // Table for orders
     [Table("Orders")]
     public class Orders
     {
@@ -21,10 +23,11 @@ namespace Team28Delivery.Models
         public string OrderStatus { get; set; }
         public string OrderPriority { get; set; }
         public string WarehouseDepartureTime { get; set; }
-        
+
         public virtual Addresses Address { get; set; }
         public virtual IList<Packages> Package { get; set; }
     }
+    // Table for addresses
     [Table("Addresses")]
     public class Addresses
     {
@@ -40,6 +43,7 @@ namespace Team28Delivery.Models
         public virtual IList<Orders> Order { get; set; }
     }
 
+    //Table for employees
     [Table("Employees")]
     public class Employees
     {
@@ -50,7 +54,7 @@ namespace Team28Delivery.Models
 
         public virtual ApplicationUser User { get; set; }
     }
-
+    // Table for packages
     [Table("Packages")]
     public class Packages
     {
@@ -68,13 +72,15 @@ namespace Team28Delivery.Models
 
         public virtual ApplicationUser User { get; set; }
         public virtual Orders Order { get; set; }
-        
+
     }
 
+    // Status class for tracking
     public enum Status
     {
         Recieved, Shipped, Completed
     }
+    // Priority class for Priority of packages
     public enum Priority
     {
         Normal, High

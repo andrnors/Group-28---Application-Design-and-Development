@@ -12,7 +12,7 @@ namespace Team28Delivery.Models
         public PickupAddress Pickup { get; set; }
         public PackageDetails PackageDetails { get; set; }
     }
-
+    // Elements to Delivery part of the order form
     public class DeliveryAddress
     {
         [Required]
@@ -36,7 +36,7 @@ namespace Team28Delivery.Models
         [Display(Name = "Country")]
         public string Country { get; set; }
     }
-
+  // Elements to Pickup part of the order form
     public class PickupAddress
     {
         [Required]
@@ -61,9 +61,10 @@ namespace Team28Delivery.Models
         public string Country { get; set; }
     }
 
+  // Elements to PackageDetails part of the order form
     public class PackageDetails
     {
-        
+
         [Display(Name = "Special info")]
         public string SpecialInfo { get; set; }
 
@@ -83,6 +84,6 @@ namespace Team28Delivery.Models
         [DataType(DataType.DateTime)]
         [Display(Name = "Pickup Time")]
         public string PickupTime { get; set; }
-         
+
     }
 }

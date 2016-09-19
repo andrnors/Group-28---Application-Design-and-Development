@@ -11,7 +11,7 @@ namespace Team28Delivery.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext(); 
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -40,10 +40,11 @@ namespace Team28Delivery.Controllers
         public ActionResult Order(OrderModel orderModel)
         {
 
-            var message = "Something went really wrong. To bad, try again.";
+            var message = "Something went really wrong. To bad, try again."; // this message will show in the url if the form is filed out wrong or something has gone wrong
 
             if (ModelState.IsValid)
             {
+              // create a pickup address
                 var pickup = new Addresses
                 {
                     StreetAddress = orderModel.Pickup.StreetAddress,
@@ -53,6 +54,8 @@ namespace Team28Delivery.Controllers
                     Country = orderModel.Pickup.Country
                 };
 
+                // if the address is in the datbase already it will not and it another time
+                // this is just to keep the database clean
                 var checkPickup = isAddressInTable(pickup);
                 if (checkPickup == null)
                 {
@@ -63,7 +66,7 @@ namespace Team28Delivery.Controllers
                 {
                     pickup = checkPickup;
                 }
-
+                // creates new delivery address
                 var delivery = new Addresses
                 {
                     StreetAddress = orderModel.Delivery.StreetAddress,
@@ -72,7 +75,8 @@ namespace Team28Delivery.Controllers
                     State = orderModel.Delivery.State,
                     Country = orderModel.Delivery.Country
                 };
-
+                // checks if the delivery address is in the database
+                // this is just to keep the database clean
                 var checkDelivery = isAddressInTable(delivery);
                 if(checkDelivery == null)
                 {
@@ -85,6 +89,7 @@ namespace Team28Delivery.Controllers
                     delivery = checkDelivery;
                 }
 
+                //creates new order to the orders table
                 var order = new Orders
                 {
                     PickupAddressID = pickup.AddressID,
@@ -94,12 +99,17 @@ namespace Team28Delivery.Controllers
                     OrderStatus = "Recieved",
                 };
 
+                // adds changes and save the database
                 db.Orders.Add(order);
                 db.SaveChanges();
 
+                // creates a user manager, so I can access the users database
+                // this is so i can set the senderID
+                // SenderID will be set to the person who creates the order, which means you will have to be loged in to create an order
                 var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 ApplicationUser user = manager.FindByIdAsync(User.Identity.GetUserId()).Result;
 
+                // creates new package to the databse
                 var package = new Packages
                 {
                     SenderID = user.Id,
@@ -110,24 +120,25 @@ namespace Team28Delivery.Controllers
                     RecieverAddressID = delivery.AddressID,
                     Cost = 666.0
                 };
-
+                // adds and changes the table
                 db.Packages.Add(package);
                 db.SaveChanges();
 
-                message = "Your order is recievd, THANK YOU!";
+                message = "Your order is recievd, THANK YOU!";  // if the order is all good, this message will be displayed in the url
 
             }
+            // redriects back to home
             return RedirectToAction("Index", "Home", new { message = message });
 
-        } 
+        }
 
 
 
-
+        // This method is used to check if an address is in the Addresses table allready
         public Addresses isAddressInTable(Addresses address)
         {
             var Addresses = db.Set<Addresses>();
-            
+
             foreach (var adr in Addresses)
             {
                 if (adr.StreetAddress == address.StreetAddress && adr.PostalCode == address.PostalCode)

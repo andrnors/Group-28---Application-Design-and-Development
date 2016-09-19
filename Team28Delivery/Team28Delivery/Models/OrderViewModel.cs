@@ -15,8 +15,7 @@ namespace Team28Delivery.Models
         public Addresses pickupAddress { get; set; }
         public Addresses deliveryAddress { get; set; }
 
-
         public Orders order { get; set; }
         public Packages package { get; set; }
-    }     
+    }
 }

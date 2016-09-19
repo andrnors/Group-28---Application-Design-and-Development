@@ -62,8 +62,13 @@ namespace Team28Delivery.Models
         public bool RememberMe { get; set; }
     }
 
+
+    // ViewModel for The Register View
+    // Basicly just says whats Required and need to be in the form
     public class RegisterViewModel
     {
+
+
         [Required]
         [Display(Name = "First name")]
         public string FirstName { get; set; }
@@ -116,6 +121,8 @@ namespace Team28Delivery.Models
 
     }
 
+    // ViewModel for The ResetPassword View
+    // Basicly just says whats Required and need to be in the form
     public class ResetPasswordViewModel
     {
         [Required]
