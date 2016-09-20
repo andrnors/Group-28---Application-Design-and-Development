@@ -31,11 +31,14 @@ namespace Team28Delivery.Controllers
             return View();
         }
 
+        [Authorize(Roles ="Customer")]
         public ActionResult Order()
         {
             return View();
         }
 
+
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Order(OrderModel orderModel)
         {
