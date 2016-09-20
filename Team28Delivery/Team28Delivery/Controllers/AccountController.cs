@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Team28Delivery.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Team28Delivery.Controllers
 {
@@ -19,6 +20,7 @@ namespace Team28Delivery.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationDbContext db = new ApplicationDbContext();
+
 
         public AccountController()
         {
@@ -181,8 +183,10 @@ namespace Team28Delivery.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                    UserManager.AddToRole(user.Id, "Customer"); // add roles as customer to new users
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    _userManager.AddToRole(user.Id, "Customer");
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

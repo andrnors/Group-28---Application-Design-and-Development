@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>The 28 Delivery</h1>
+    <p class="lead">Got an package that need fast and secure delivery? We'll do it for you!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Register account</h2>
+        <p>
+            Register account to place an order with The 28 Delivery!
+        </p>
+        <p><a class="btn btn-default" @Html.ActionLink("Register", "Register", "Account")</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Already got an account?</h2>
+        <p>Log in!</p>
+        <p><a class="btn btn-default" @Html.ActionLink("Log in", "Login", "Account")</a></p>
+</div>
+</div>

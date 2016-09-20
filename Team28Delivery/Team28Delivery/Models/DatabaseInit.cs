@@ -8,14 +8,16 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Team28Delivery.Models
 {
-    // This is not ready, but will eventually seed the database for us
-    public class DatabaseInit : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
+    // Drops databse every time 
+    // This is to ensure that the roleManager is doing it job
+    // adn because we don't want the database to fill up with crap while debuging
+    public class DatabaseInit : DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            roleManager.Create(new IdentityRole("Customer"));
+            roleManager.Create(new IdentityRole("Customer"));  // Customer role
             base.Seed(context);
         }
 
