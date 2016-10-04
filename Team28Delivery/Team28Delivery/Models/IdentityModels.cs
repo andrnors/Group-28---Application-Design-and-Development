@@ -17,6 +17,7 @@ namespace Team28Delivery.Models
         public string Phone { get; set; }
         [ForeignKey("Address")]
         public int AddressID { get; set; }
+        public string AccessLevel { get; set; }
 
         public virtual Addresses Address { get; set; }
         public virtual IList<Packages> Packages { get; set; }

@@ -51,6 +51,7 @@ namespace Team28Delivery.Models
         public string EmployeeID { get; set; }
         public string BankAccount { get; set; }
         public string CarRegister { get; set; }
+        public string AccessLevel { get; set; }
 
         public virtual ApplicationUser User { get; set; }
     }

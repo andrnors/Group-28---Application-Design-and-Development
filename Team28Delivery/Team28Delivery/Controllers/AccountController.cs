@@ -176,7 +176,8 @@ namespace Team28Delivery.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Phone = model.Phone,
-                    AddressID = address.AddressID
+                    AddressID = address.AddressID,
+                    AccessLevel = "Customer"
                     };
 
 

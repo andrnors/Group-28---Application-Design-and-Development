@@ -14,7 +14,7 @@ namespace Team28Delivery.Controllers
         // need to be loged in as a user to se this
         // will be changed to loged in as employee
         // Employee role is not created at this point
-        [Authorize(Roles = "Customer")]  
+        [Authorize(Roles = "Employee, Admin")]  
         // GET: CustomerUser
         public ActionResult Index()
         {
