@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Team28Delivery.Models.Packages>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order Management</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Address.StreetAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Timestap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReadyForPickUpTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPriority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseDepartureTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address.StreetAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Timestap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReadyForPickUpTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPriority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseDepartureTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
+        </td>
+    </tr>
+}
+
+</table>

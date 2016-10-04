@@ -68,11 +68,13 @@ namespace Team28Delivery.Models
         public string RecieversName { get; set; }
         public double Weight { get; set; }
         public string SpecialInfo { get; set; }
-        public int RecieverAddressID { get; set; }
+        [ForeignKey("Address")]
+        public int? RecieverAddressID { get; set; }
         public double Cost { get; set; }
 
         public virtual ApplicationUser User { get; set; }
         public virtual Orders Order { get; set; }
+        public virtual Addresses Address { get; set; }
 
     }
 

@@ -475,6 +475,6 @@ C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28D
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.dll
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.pdb
+C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache

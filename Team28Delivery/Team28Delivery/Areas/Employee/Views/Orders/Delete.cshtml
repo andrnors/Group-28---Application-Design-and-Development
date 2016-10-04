@@ -1,0 +1,80 @@
+﻿@model Team28Delivery.Models.Orders
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.StreetAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.StreetAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReadyForPickUpTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReadyForPickUpTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderPriority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseDepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseDepartureTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

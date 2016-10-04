@@ -11,7 +11,7 @@ namespace Team28Delivery.Models
     // Drops databse every time 
     // This is to ensure that the roleManager is doing it job
     // adn because we don't want the database to fill up with crap while debuging
-    public class DatabaseInit : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class DatabaseInit : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

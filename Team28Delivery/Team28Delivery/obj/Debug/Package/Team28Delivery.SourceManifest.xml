@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<sitemanifest>
-  <IisApp path="C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Package\PackageTmp" />
-  <setAcl path="C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
-</sitemanifest>

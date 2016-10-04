@@ -1,0 +1,74 @@
+﻿@model Team28Delivery.Models.Orders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.StreetAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.StreetAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReadyForPickUpTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReadyForPickUpTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderPriority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderPriority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseDepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseDepartureTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

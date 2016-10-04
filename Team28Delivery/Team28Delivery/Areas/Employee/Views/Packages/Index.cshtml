@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Team28Delivery.Models.Packages>
+
+@{
+    ViewBag.Title = "Order Management";
+}
+
+<h2>Order Management</h2>
+<table class="table">
+    <tr>
+        <th>
+            Ready for pickup
+        </th>
+        <th>
+            Priority
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Warehouse Arrival Time
+        </th>
+        <th>
+            Warehose Departure Time
+        </th>
+        <th>
+            Special Package Info
+        </th>
+        <th>
+            Order Timestamp 
+        </th>
+        <th>
+            Package Cost
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.ReadyForPickUpTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.OrderPriority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.OrderStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.WarehouseArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.WarehouseDepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecialInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Timestap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PackageID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PackageID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PackageID })
+        </td>
+    </tr>
+}
+
+</table>
