@@ -55,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Order.WarehouseArrivalTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order.WarehouseArrivalTime, new {htmlAttributes = new {@class = "form-control"}})
+                <input type="datetime-local" name="Order.WarehouseArrivalTime" class="form-control">
                 @Html.ValidationMessageFor(model => model.Order.WarehouseArrivalTime, "", new {@class = "text-danger"})
             </div>
         </div>
@@ -63,16 +63,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Order.WarehouseDepartureTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order.WarehouseDepartureTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Order.WarehouseDepartureTime, "", new { @class = "text-danger" })
+                <input type="datetime-local" name="Order.WarehouseDepartureTime" class="form-control">
+                @Html.ValidationMessageFor(model => model.Order.WarehouseDepartureTime, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Order.Timestap, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order.Timestap, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Order.Timestap, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Order.Timestap, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Order.Timestap, "", new {@class = "text-danger"})
             </div>
         </div>
 

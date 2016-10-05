@@ -19,10 +19,10 @@ namespace Team28Delivery.Models
         [ForeignKey("Address")]
         public int PickupAddressID { get; set; }
         public DateTime ReadyForPickUpTime { get; set; }
-        public String WarehouseArrivalTime { get; set; }
+        public DateTime? WarehouseArrivalTime { get; set; }
         public string OrderStatus { get; set; }
         public string OrderPriority { get; set; }
-        public String WarehouseDepartureTime { get; set; }
+        public DateTime? WarehouseDepartureTime { get; set; }
 
         public virtual Addresses Address { get; set; }
         public virtual IList<Packages> Package { get; set; }

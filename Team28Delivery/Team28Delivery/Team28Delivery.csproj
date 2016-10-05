@@ -248,11 +248,6 @@
     <Content Include="Areas\Employee\Views\web.config" />
     <Content Include="Areas\Employee\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Employee\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Employee\Views\Orders\Create.cshtml" />
-    <Content Include="Areas\Employee\Views\Orders\Delete.cshtml" />
-    <Content Include="Areas\Employee\Views\Orders\Details.cshtml" />
-    <Content Include="Areas\Employee\Views\Orders\Edit.cshtml" />
-    <Content Include="Areas\Employee\Views\Orders\Index.cshtml" />
     <Content Include="Areas\Employee\Views\Packages\Delete.cshtml" />
     <Content Include="Areas\Employee\Views\Packages\Details.cshtml" />
     <Content Include="Areas\Employee\Views\Packages\Edit.cshtml" />

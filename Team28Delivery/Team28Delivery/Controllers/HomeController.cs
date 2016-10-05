@@ -99,7 +99,8 @@ namespace Team28Delivery.Controllers
                     Timestap = DateTime.Now,
                     OrderPriority = orderModel.PackageDetails.Priority,
                     ReadyForPickUpTime = orderModel.PackageDetails.PickupTime,
-                    OrderStatus = "Recieved",
+                    OrderStatus = "Order Recieved"
+
                 };
 
                 // adds changes and save the database
