@@ -83,7 +83,7 @@ namespace Team28Delivery.Models
         [Required]
         [DataType(DataType.DateTime)]
         [Display(Name = "Pickup Time")]
-        public string PickupTime { get; set; }
+        public DateTime PickupTime { get; set; }
 
     }
 }

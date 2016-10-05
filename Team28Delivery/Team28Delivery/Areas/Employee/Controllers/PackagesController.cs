@@ -68,7 +68,7 @@ namespace Team28Delivery.Areas.Employee.Controllers
             }
             ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "ReadyForPickUpTime", packages.OrderID);
             //ViewBag.SenderID = new SelectList(db.ApplicationUsers, "Id", "FirstName", packages.SenderID);
-            return View(model);
+            return View(packages);
         }
 
         // POST: Employee/Packages/Edit/5
@@ -78,24 +78,39 @@ namespace Team28Delivery.Areas.Employee.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Packages packages)
         {
-            var order = db.Orders.Find(packages.OrderID);
-            var package = db.Packages.Find(packages.PackageID);
-            var pickupAddress = db.Addresses.Find((packages.Order.PickupAddressID));
-            var deliverAddress = db.Addresses.Find(packages.RecieverAddressID);
-
-            order.Address = packages.Order.Address;
-            order.Timestap = packages.Order.Timestap;
-            order.PickupAddressID = packages.Order.PickupAddressID;
-            order.ReadyForPickUpTime = packages.Order.ReadyForPickUpTime;
-            order.WarehouseArrivalTime = packages.Order.WarehouseArrivalTime;
-            order.OrderStatus = packages.Order.OrderStatus;
-            order.OrderPriority = packages.Order.OrderPriority;
-            order.WarehouseDepartureTime = packages.Order.WarehouseDepartureTime;
-
-
+          
             if (ModelState.IsValid)
             {
+                var package = db.Packages.Find(packages.PackageID);
+                package.RecieversName = packages.RecieversName;
+                package.Weight = packages.Weight;
+                package.SpecialInfo = packages.SpecialInfo;
+                db.Entry(package).State = EntityState.Modified;
+
+                var order = db.Orders.Find(packages.OrderID);
+                order.WarehouseArrivalTime = packages.Order.WarehouseArrivalTime;
+                order.OrderStatus = packages.Order.OrderStatus;
+                order.OrderPriority = packages.Order.OrderPriority;
+                order.WarehouseDepartureTime = packages.Order.WarehouseDepartureTime;
                 db.Entry(order).State = EntityState.Modified;
+
+                var pickupAddress = db.Addresses.Find((packages.Order.PickupAddressID));
+                pickupAddress.StreetAddress = packages.Order.Address.StreetAddress;
+                pickupAddress.Suburb = packages.Order.Address.Suburb;
+                pickupAddress.PostalCode = packages.Order.Address.PostalCode;
+                pickupAddress.State = packages.Order.Address.State;
+                pickupAddress.Country = packages.Order.Address.Country;
+                db.Entry(pickupAddress).State = EntityState.Modified;
+
+                var deliverAddress = db.Addresses.Find(packages.RecieverAddressID);
+                deliverAddress.StreetAddress = packages.Address.StreetAddress;
+                deliverAddress.Suburb = packages.Address.Suburb;
+                deliverAddress.PostalCode = packages.Address.PostalCode;
+                deliverAddress.State = packages.Address.State;
+                deliverAddress.Country = packages.Address.Country;
+                db.Entry(deliverAddress).State = EntityState.Modified;
+
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

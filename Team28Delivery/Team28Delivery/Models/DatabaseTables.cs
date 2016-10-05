@@ -18,11 +18,11 @@ namespace Team28Delivery.Models
         public DateTime Timestap { get; set; }
         [ForeignKey("Address")]
         public int PickupAddressID { get; set; }
-        public string ReadyForPickUpTime { get; set; }
-        public string WarehouseArrivalTime { get; set; }
+        public DateTime ReadyForPickUpTime { get; set; }
+        public String WarehouseArrivalTime { get; set; }
         public string OrderStatus { get; set; }
         public string OrderPriority { get; set; }
-        public string WarehouseDepartureTime { get; set; }
+        public String WarehouseDepartureTime { get; set; }
 
         public virtual Addresses Address { get; set; }
         public virtual IList<Packages> Package { get; set; }
