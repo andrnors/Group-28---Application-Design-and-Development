@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Moq;
 
 namespace Team28Delivery.Models.Tests
@@ -70,8 +68,7 @@ namespace Team28Delivery.Models.Tests
             
             var actual = classUnderTest.FindOrders(expectedId);
             
-            Assert.IsNotNull(actual);
-            Assert.AreEqual(expected.OrderID, actual.OrderID);
+            Assert.IsNull(actual);
         }
     }
 }
