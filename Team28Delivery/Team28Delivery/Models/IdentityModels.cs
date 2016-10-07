@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -6,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using System.Activities.Statements;
+using System.Linq;
 
 namespace Team28Delivery.Models
 {
@@ -50,5 +52,26 @@ namespace Team28Delivery.Models
             return new ApplicationDbContext();
         }
         
+    }
+
+    public class CustumDBContext : DbContext, IDisposable
+    {
+        public virtual IDbSet<Orders> Orders { get; set; }
+
+    }
+
+    public class Processor
+    {
+        private readonly CustumDBContext _dbContext;
+
+        public Processor(CustumDBContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public Orders FindOrders(int id)
+        {
+            return _dbContext.Orders.FirstOrDefault(Orders => Orders.OrderID == id);
+        }
     }
 }

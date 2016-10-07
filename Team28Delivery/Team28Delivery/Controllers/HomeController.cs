@@ -2,7 +2,9 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Team28Delivery.Models;
@@ -12,6 +14,12 @@ namespace Team28Delivery.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public HomeController(ApplicationDbContext context)
+        {
+            db = context;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -152,6 +160,13 @@ namespace Team28Delivery.Controllers
             }
             return null;
 
+        }
+
+        public async Task<ViewResult> TestIndex()
+        {
+            var query = db.Orders.OrderBy(b => b.OrderID);
+
+            return View(await query.ToListAsync());
         }
 
     }
