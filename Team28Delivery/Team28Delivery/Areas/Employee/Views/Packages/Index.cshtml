@@ -5,6 +5,17 @@
 }
 
 <h2>Order Management</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.TextBox("SearchString")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+ 
+
 <table class="table">
     <tr>
         <th>

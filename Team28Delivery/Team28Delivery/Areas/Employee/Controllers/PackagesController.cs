@@ -16,14 +16,22 @@ namespace Team28Delivery.Areas.Employee.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employee/Packages
-        public ActionResult Index()
+        [Authorize(Roles = "Employee, Admin")]
+        public ActionResult Index(string searchstring)
         {
             var packages = db.Packages.Include(p => p.Order).Include(p => p.User);
+            
+            if (!String.IsNullOrEmpty(searchstring))
+            {
+                packages = packages.Where(s => s.RecieversName.Contains(searchstring));
+            }
+
             
             return View(packages.ToList());
         }
 
         // GET: Employee/Packages/Details/5
+        [Authorize(Roles = "Employee, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -45,9 +53,10 @@ namespace Team28Delivery.Areas.Employee.Controllers
             }
             return View(orderModel);
         }
-        
+
 
         // GET: Employee/Packages/Edit/5
+        [Authorize(Roles = "Employee, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,6 +85,7 @@ namespace Team28Delivery.Areas.Employee.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Employee, Admin")]
         public ActionResult Edit(Packages packages)
         {
           
@@ -119,6 +129,7 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // GET: Employee/Packages/Delete/5
+        [Authorize(Roles = "Employee, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -136,6 +147,7 @@ namespace Team28Delivery.Areas.Employee.Controllers
         // POST: Employee/Packages/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Employee, Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Packages packages = db.Packages.Find(id);
