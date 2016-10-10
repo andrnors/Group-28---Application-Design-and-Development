@@ -382,6 +382,42 @@ namespace Team28Delivery.Controllers
             return View(applicationUser);
         }
 
+        // GET Manage/ViewOrders
+        public async Task<ActionResult> ViewOrders()
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser user = manager.FindByIdAsync(User.Identity.GetUserId()).Result;
+            var packages = db.Packages.Include(p => p.Order).Include(p => p.User);
+
+            packages = packages.Where(p => p.SenderID.Equals(user.Id));
+
+            return View(packages.ToList());
+        }
+
+        public async Task<ActionResult> ViewOrderDetails(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Packages packages = db.Packages.Find(id);
+            Orders orders = db.Orders.Find(packages.OrderID);
+            Areas.Employee.Models.OrderModel orderModel = new Areas.Employee.Models.OrderModel
+            {
+                Packages = packages,
+                Orders = orders
+            };
+
+
+            if (packages == null)
+            {
+                return HttpNotFound();
+            }
+            return View(orderModel);
+
+        }
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
