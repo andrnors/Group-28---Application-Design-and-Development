@@ -1,0 +1,191 @@
+﻿@model Team28Delivery.Areas.Employee.Models.OrderModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Packages</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <h4>Package Information</h4>
+        <dt>
+            Senders First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.User.FirstName)
+        </dd>
+        <dt>
+            Senders Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.User.LastName)
+        </dd>
+            
+        <dt>
+            Ready for pickup
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.ReadyForPickUpTime)
+        </dd>
+        <dt>
+            Priority
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.OrderPriority)
+        </dd>
+        <dt>
+            Status
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.OrderStatus)
+        </dd>
+        <dt>
+            Warehouse Arival Time
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.WarehouseArrivalTime)
+        </dd>
+        <dt>
+            Warehouse Departure Time
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.WarehouseDepartureTime)
+        </dd>
+        <dt>
+            Order Timestamp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.Timestap)
+        </dd>
+
+        <dt>
+              Package Weight
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Weight)
+        </dd>
+
+        <dt>
+            Special Package Info
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.SpecialInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Packages.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Cost)
+        </dd>
+
+        <hr/>
+
+        <h4>Pickup Address</h4>
+        <dt>
+            Pick up Street Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.Address.StreetAddress)
+        </dd>
+        <dt>
+            Pick up Suburb
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.Address.Suburb)
+        </dd>
+
+        <dt>
+            Pick up Postal Code
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.Address.PostalCode)
+        </dd>
+        <dt>
+            Pick up State
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.Address.State)
+        </dd>
+
+        <dt>
+            Pick up Country
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Orders.Address.Country)
+        </dd>
+
+        <hr/>
+
+        <h4>Deliver Address</h4>
+        <dt>
+            Recievers First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.RecieversName)
+        </dd>
+        <dt>
+            Deliver Street Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Address.StreetAddress)
+        </dd>
+        <dt>
+            Deliver Suburb
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Address.Suburb)
+        </dd>
+
+        <dt>
+            Deliver Postal Code
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Address.PostalCode)
+        </dd>
+        <dt>
+            Deliver State
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Address.State)
+        </dd>
+
+        <dt>
+            Deliver Country
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Packages.Address.Country)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Packages.PackageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Team28Delivery.Models;
@@ -15,6 +18,8 @@ namespace Team28Delivery.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
+
 
         public ManageController()
         {
@@ -333,7 +338,51 @@ namespace Team28Delivery.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        public async Task<ActionResult> Details()
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser user = manager.FindByIdAsync(User.Identity.GetUserId()).Result;
+            return View(user);
+        }
+
+        // GET: Manage/Edit/
+        public async Task<ActionResult> Edit()
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser user = manager.FindByIdAsync(User.Identity.GetUserId()).Result;
+
+            return View(user);
+        }
+        // POST: Manage/Edit/
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ApplicationUser applicationUser)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                var address = db.Addresses.Find(applicationUser.Address.AddressID);
+                address.StreetAddress = applicationUser.Address.StreetAddress;
+                address.Suburb = applicationUser.Address.Suburb;
+                address.PostalCode = applicationUser.Address.PostalCode;
+                address.State = applicationUser.Address.State;
+                address.Country = applicationUser.Address.Country;
+                db.Entry(address).State = EntityState.Modified;
+
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser user = manager.FindByIdAsync(User.Identity.GetUserId()).Result;
+                user.FirstName = applicationUser.FirstName;
+                user.LastName = applicationUser.LastName;
+                user.Phone = applicationUser.Phone;
+                db.Entry(user).State = EntityState.Modified;
+
+                db.SaveChanges();
+                return RedirectToAction("Details");
+            }
+            return View(applicationUser);
+        }
+
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
