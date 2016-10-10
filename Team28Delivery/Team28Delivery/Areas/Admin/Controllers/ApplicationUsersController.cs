@@ -75,7 +75,14 @@ namespace Team28Delivery.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                var employee = new Employees()
+                {
+                    EmployeeID = applicationUser.Id,
+                    AccessLevel = "Employee"
+                    
+                };
                 db.Entry(applicationUser).State = EntityState.Modified;
+                db.Employees.Add(employee);
                 db.SaveChanges();
                 userManager.AddToRole(applicationUser.Id, "Employee");
                 return RedirectToAction("Index");
@@ -144,8 +151,16 @@ namespace Team28Delivery.Areas.Admin.Controllers
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult DeleteConfirmed(string id)
         {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            
             ApplicationUser applicationUser = db.Users.Find(id);
             db.Users.Remove(applicationUser);
+            var employee = db.Employees.Find(applicationUser.Id);
+            if (userManager.IsInRole(applicationUser.Id, "Employee"))
+            {
+                db.Employees.Remove(employee);
+            }
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

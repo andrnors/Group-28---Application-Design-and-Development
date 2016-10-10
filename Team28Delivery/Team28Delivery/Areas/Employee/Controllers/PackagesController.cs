@@ -152,7 +152,10 @@ namespace Team28Delivery.Areas.Employee.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Packages packages = db.Packages.Find(id);
+            var order = db.Orders.Find(packages.OrderID);
+
             db.Packages.Remove(packages);
+            db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
