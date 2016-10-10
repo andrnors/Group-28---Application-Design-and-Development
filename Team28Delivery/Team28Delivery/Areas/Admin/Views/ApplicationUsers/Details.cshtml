@@ -1,0 +1,129 @@
+﻿@model Team28Delivery.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       <dd>
+            @Html.DisplayFor(model => model.Employee.BankAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccessLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccessLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.BankAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.BankAccount)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.CarRegister)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.CarRegister)
+        </dd>
+        
+
+
+        <h4>Address</h4>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.StreetAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.StreetAddress)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.Suburb)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.Suburb)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.PostalCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.PostalCode)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.State)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.State)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.Country)
+        </dd>
+
+
+
+
+
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
