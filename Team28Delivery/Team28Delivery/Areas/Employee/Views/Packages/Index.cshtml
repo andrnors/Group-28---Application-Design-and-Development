@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     <p>
-        @Html.TextBox("SearchString")
+        <input type="datetime-local" name="fromDate" class="form-control">
         <input type="submit" value="Filter" />
     </p>
 }

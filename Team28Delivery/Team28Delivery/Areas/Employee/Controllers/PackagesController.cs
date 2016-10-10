@@ -17,15 +17,16 @@ namespace Team28Delivery.Areas.Employee.Controllers
 
         // GET: Employee/Packages
         [Authorize(Roles = "Employee, Admin")]
-        public ActionResult Index(string searchstring)
+        public ActionResult Index(DateTime? fromDate)
         {
             var packages = db.Packages.Include(p => p.Order).Include(p => p.User);
-            
-            if (!String.IsNullOrEmpty(searchstring))
-            {
-                packages = packages.Where(s => s.RecieversName.Contains(searchstring));
-            }
 
+            //if (!fromDate.HasValue) fromDate = DateTime.Now.Date;  
+            ViewBag.fromDate = fromDate;
+            if(fromDate != null)        
+            {
+                packages = packages.Where(s => s.Order.ReadyForPickUpTime > fromDate);
+            }
             
             return View(packages.ToList());
         }
