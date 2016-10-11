@@ -71,7 +71,7 @@ namespace Team28Delivery.Models
             _dbContext = dbContext;
         }
 
-        public Orders FindOrders(int id)
+        public Orders getOrder(int id)
         {
             return _dbContext.Orders.FirstOrDefault(Orders => Orders.OrderID == id);
         }
