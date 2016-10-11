@@ -15,7 +15,7 @@ namespace Team28Delivery.Models.Tests
         [TestMethod()]
         public void OrdersTest()
         {
-            const int expectedId = 1;
+            
             var expected = new Orders
             {
                 PickupAddressID = 1,
@@ -69,6 +69,60 @@ namespace Team28Delivery.Models.Tests
             var classUnderTest = new Processor(customDbContextMock.Object);
 
             var right = classUnderTest.getOrder(0) == expected;
+
+
+            Assert.IsNotNull(dbSetMock);
+            Assert.IsTrue(right);
+
+        }
+
+        [TestMethod()]
+        public void EmployeeTest()
+        {
+            
+            var expected = new Employees
+            {
+                EmployeeID = "admin",
+                BankAccount = "123",
+                CarRegister = "12345",
+                AccessLevel = "HIGH" 
+
+            };
+
+            var data = new List<Employees>
+           {
+                expected,
+                new Employees
+            {
+                EmployeeID = "employee1",
+                BankAccount = "456",
+                CarRegister = "67890",
+                AccessLevel = "LOW"
+
+            } ,new Employees
+            {
+                EmployeeID = "employee2",
+                BankAccount = "789",
+                CarRegister = "09876",
+                AccessLevel = "HIGH"
+
+            }}.AsQueryable();
+
+            var dbSetMock = new Mock<IDbSet<Employees>>();
+
+
+            dbSetMock.Setup(m => m.Provider).Returns(data.Provider);
+            dbSetMock.Setup(m => m.Expression).Returns(data.Expression);
+            dbSetMock.Setup(m => m.ElementType).Returns(data.ElementType);
+            dbSetMock.Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+            var customDbContextMock = new Mock<CustumEmDBContext>();
+
+            customDbContextMock.Setup(x => x.Employees).Returns(dbSetMock.Object);
+
+            var classUnderTest = new ProcessorEmployees(customDbContextMock.Object);
+
+            var right = classUnderTest.GetEmployees("admin") == expected;
 
 
             Assert.IsNotNull(dbSetMock);

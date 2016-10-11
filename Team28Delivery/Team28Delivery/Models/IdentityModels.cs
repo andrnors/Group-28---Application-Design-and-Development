@@ -76,4 +76,25 @@ namespace Team28Delivery.Models
             return _dbContext.Orders.FirstOrDefault(Orders => Orders.OrderID == id);
         }
     }
+
+    public class CustumEmDBContext : DbContext, IDisposable
+    {
+        public virtual IDbSet<Employees> Employees { get; set; }
+
+    }
+
+    public class ProcessorEmployees
+    {
+        private readonly CustumEmDBContext _dbContext;
+
+        public ProcessorEmployees(CustumEmDBContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public Employees GetEmployees(String id)
+        {
+            return _dbContext.Employees.FirstOrDefault(e => e.EmployeeID == id);
+        }
+    }
 }
