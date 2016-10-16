@@ -3,4 +3,7 @@
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-Team28Delivery-20160830124644.mdf;Initial Catalog=aspnet-Team28Delivery-20160830124644;Integrated Security=True" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Andreas\\Documents\\Group-28---Application-Design-and-Development\\Team28Delivery\\Team28Delivery\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
+  <parameter name="Team28Delivery.Models.CustumDBContext-Web.config Connection String" description="Team28Delivery.Models.CustumDBContext Connection String used in web.config by the application to access the database." defaultValue="Team28Delivery.Models.CustumDBContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andreas\\Documents\\Group-28---Application-Design-and-Development\\Team28Delivery\\Team28Delivery\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Team28Delivery.Models.CustumDBContext']/@connectionString" />
+  </parameter>
 </parameters>
