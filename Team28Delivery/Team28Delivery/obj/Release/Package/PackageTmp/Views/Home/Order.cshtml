@@ -82,7 +82,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.PackageDetails.PickupTime, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PackageDetails.PickupTime, new { @class = "form-control" })
+            <input type="datetime-local" name="PackageDetails.PickupTime" class="form-control">
         </div>
     </div>
 

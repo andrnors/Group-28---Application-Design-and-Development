@@ -1,0 +1,77 @@
+﻿@model Team28Delivery.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div>
+    <dl class="dl-horizontal">
+        <h4>Your details</h4>
+        <dt>
+            First Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            Phone number
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            Street Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.StreetAddress)
+        </dd>
+        <dt>
+            Suburb
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.Suburb)
+        </dd>
+        <dt>
+            Postal Code
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.PostalCode)
+        </dd>
+    
+        <dt>
+            State
+        
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address.State)
+        </dd>
+    
+        <dt>
+            Country
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.Country)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+
+</p>
