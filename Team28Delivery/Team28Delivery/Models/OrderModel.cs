@@ -72,9 +72,9 @@ namespace Team28Delivery.Models
         [Display(Name = "Weight")]
         public double Weight { get; set; }
 
-        [Required]
+        
         [Display(Name = "Priority")]
-        public string Priority { get; set; }
+        public Priority Priority { get; set; }
 
         [Required]
         [Display(Name = "Reciever Name")]

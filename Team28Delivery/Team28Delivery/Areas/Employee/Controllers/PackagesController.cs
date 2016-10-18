@@ -16,6 +16,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employee/Packages
+        /// <summary>
+        /// GETs overview of all orders and details in database
+        /// </summary>
+        /// <param name="fromDate"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Index(DateTime? fromDate)
         {
@@ -32,6 +37,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // GET: Employee/Packages/Details/5
+       /// <summary>
+       /// GETs order and package details with that id
+       /// </summary>
+       /// <param name="id"></param>
+       /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Details(int? id)
         {
@@ -57,6 +67,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
 
 
         // GET: Employee/Packages/Edit/5
+        /// <summary>
+        /// GETs the edit page order- and packages page
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Edit(int? id)
         {
@@ -82,8 +97,12 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // POST: Employee/Packages/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Edit order- and package details.
+        /// Changes details to values in packages
+        /// </summary>
+        /// <param name="packages"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee, Admin")]
@@ -130,6 +149,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // GET: Employee/Packages/Delete/5
+        /// <summary>
+        /// GETs the delete page, where you can delete orders
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Delete(int? id)
         {
@@ -146,6 +170,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // POST: Employee/Packages/Delete/5
+        /// <summary>
+        /// Deletes package and order from database with that id 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee, Admin")]

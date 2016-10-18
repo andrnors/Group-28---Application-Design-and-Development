@@ -337,7 +337,10 @@ namespace Team28Delivery.Controllers
 
             base.Dispose(disposing);
         }
-
+        /// <summary>
+        /// GETs userdetails
+        /// </summary>
+        /// <returns></returns>
         public async Task<ActionResult> Details()
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
@@ -346,6 +349,10 @@ namespace Team28Delivery.Controllers
         }
 
         // GET: Manage/Edit/
+        /// <summary>
+        /// GETs the 'edit your own' page
+        /// </summary>
+        /// <returns></returns>
         public async Task<ActionResult> Edit()
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
@@ -354,6 +361,12 @@ namespace Team28Delivery.Controllers
             return View(user);
         }
         // POST: Manage/Edit/
+        /// <summary>
+        /// Users can edit their own their own user details. 
+        /// Details changed to values from applicationUser
+        /// </summary>
+        /// <param name="applicationUser"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ApplicationUser applicationUser)
@@ -383,6 +396,10 @@ namespace Team28Delivery.Controllers
         }
 
         // GET Manage/ViewOrders
+        /// <summary>
+        /// GETs all orders from this specific user
+        /// </summary>
+        /// <returns></returns>
         public async Task<ActionResult> ViewOrders()
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
@@ -393,7 +410,11 @@ namespace Team28Delivery.Controllers
 
             return View(packages.ToList());
         }
-
+        /// <summary>
+        /// GETs order details for the order with that id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ActionResult> ViewOrderDetails(int id)
         {
             if (id == null)

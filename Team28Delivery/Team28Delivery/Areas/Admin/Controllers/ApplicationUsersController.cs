@@ -17,6 +17,13 @@ namespace Team28Delivery.Areas.Admin.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Admin/ApplicationUsers
+        /// <summary>
+        ///  GETs Users in the database, and show basic userdetails in table
+        /// Searchstring is searchable value for search bar on the page.
+        /// Searches after emails.
+        /// </summary>
+        /// <param name="searchstring"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Index(string searchstring)
         { 
@@ -30,6 +37,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // GET: Admin/ApplicationUsers/Details/5
+        /// <summary>
+        /// GETs user details for user with that id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Details(string id)
         {
@@ -46,7 +58,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // GET: Admin/ApplicationUsers/Create
-        // This function takes you to the page where Admins are allowed to make users Employees
+        /// <summary>
+        /// This function takes you to the page where Admins are allowed to make users Employees
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Create(string id)
         {
@@ -65,8 +81,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // POST: Admin/ApplicationUsers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Make a normal 'user' to an Employee. USER UPGRADE
+        /// </summary>
+        /// <param name="applicationUser"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -91,7 +110,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
             ViewBag.Id = new SelectList(db.Employees, "EmployeeID", "BankAccount", applicationUser.Id);
             return View(applicationUser);
         }
-
+        /// <summary>
+        /// GETs user with that ID and shows all details in a form
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Admin/ApplicationUsers/Edit/5
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Edit(string id)
@@ -101,6 +124,15 @@ namespace Team28Delivery.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ApplicationUser applicationUser = db.Users.Find(id);
+            Addresses userAddress = new Addresses()
+            {
+                AddressID = applicationUser.AddressID,
+                StreetAddress = applicationUser.Address.StreetAddress,
+                Country = applicationUser.Address.Country,
+                PostalCode = applicationUser.Address.State,
+                Suburb = applicationUser.Address.Suburb
+            };
+
             if (applicationUser == null)
             {
                 return HttpNotFound();
@@ -109,23 +141,50 @@ namespace Team28Delivery.Areas.Admin.Controllers
             ViewBag.Id = new SelectList(db.Employees, "EmployeeID", "BankAccount", applicationUser.Id);
             return View(applicationUser);
         }
-
+        /// <summary>
+        /// Changes userdetails for the current user
+        /// </summary>
+        /// <param name="applicationUser"></param>
+        /// <returns></returns>
         // POST: Admin/ApplicationUsers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee, Admin")]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Phone,AddressID,AccessLevel,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        public ActionResult Edit(ApplicationUser applicationUser)
         {
             if (ModelState.IsValid)
             {
+                // this part is all good 
+                var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                var user = manager.FindByIdAsync(User.Identity.GetUserId()).Result;
+                user.FirstName = applicationUser.FirstName;
+                user.LastName = applicationUser.LastName;
+                user.Phone = applicationUser.Phone;
+                user.Email = applicationUser.Email;
+                user.UserName = applicationUser.UserName;
                 db.Entry(applicationUser).State = EntityState.Modified;
+
+
+                // This does not work
+                // have to figure out why. Updates userdeails but not anything else..
+
+                //user.Employee.BankAccount = applicationUser.Employee.BankAccount;
+                //user.Employee.CarRegister = applicationUser.Employee.CarRegister;
+
+                //var address = db.Addresses.Find(applicationUser.Address.AddressID);
+                //address.StreetAddress = applicationUser.Address.StreetAddress;
+                //address.Suburb = applicationUser.Address.Suburb;
+                //address.PostalCode = applicationUser.Address.PostalCode;
+                //address.State = applicationUser.Address.State;
+                //address.Country = applicationUser.Address.Country;
+                //db.Entry(address).State = EntityState.Modified;
+
+                // save changes to database 
                 db.SaveChanges();
+                // return to index view
                 return RedirectToAction("Index");
+
             }
-            ViewBag.AddressID = new SelectList(db.Addresses, "AddressID", "StreetAddress", applicationUser.AddressID);
-            ViewBag.Id = new SelectList(db.Employees, "EmployeeID", "BankAccount", applicationUser.Id);
             return View(applicationUser);
         }
 
