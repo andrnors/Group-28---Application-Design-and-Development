@@ -204,6 +204,7 @@
     <Compile Include="Areas\Employee\Controllers\PackagesController.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Areas\Employee\Models\OrderModel.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

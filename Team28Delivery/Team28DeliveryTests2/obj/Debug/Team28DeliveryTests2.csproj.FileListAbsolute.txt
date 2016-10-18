@@ -75,3 +75,9 @@ C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-D
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\obj\Debug\Team28DeliveryTests2.csprojResolveAssemblyReference.cache
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\obj\Debug\Team28DeliveryTests2.dll
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\obj\Debug\Team28DeliveryTests2.pdb
+C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\bin\Debug\Castle.Core.dll
+C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\bin\Debug\nunit.framework.dll
+C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\bin\Debug\WebDriver.dll
+C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\bin\Debug\Castle.Core.xml
+C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\bin\Debug\nunit.framework.xml
+C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28DeliveryTests2\bin\Debug\WebDriver.xml
