@@ -36,12 +36,6 @@ namespace Team28DeliveryTests2
 
         }
 
-        [Test]
-        public void LogOutAdmin()
-        {
-            driver.FindElement(By.Id("LogIn")).Click();
-
-        }
 
         [Test]
         public void RegisterUser()
