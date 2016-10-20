@@ -21,32 +21,34 @@ namespace Team28DeliveryTests2
         [Test]
         public void TestOpenApp()
         {
-            driver.Url = "http://ifb299team28delivery.azurewebsites.net/";
+            driver.Url = "http://28deliveryifb299.azurewebsites.net/";
         }
 
         [Test]
-        public void LogInAdmin()
+        public void AdminTest()
         {
-            driver.Navigate().GoToUrl("http://ifb299team28delivery.azurewebsites.net/Account/Login");
+            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Login");
             IWebElement username  = driver.FindElement(By.Id("Email"));
-            username.SendKeys("admin@delivery.au");
+            username.SendKeys("admin@28delivery.au");
             IWebElement password = driver.FindElement(By.Id("Password"));
             password.SendKeys("#Passord1");
             driver.FindElement(By.Id("LogIn")).Click();
 
+            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Login");
+
         }
 
 
         [Test]
-        public void RegisterUser()
+        public void UserTest()
         {
-            driver.Navigate().GoToUrl("http://ifb299team28delivery.azurewebsites.net/Account/Register");
+            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Register");
             IWebElement FirstName = driver.FindElement(By.Id("FirstName"));
-            FirstName.SendKeys("Cecilie");
+            FirstName.SendKeys("Eirik");
             IWebElement LastName = driver.FindElement(By.Id("LastName"));
-            LastName.SendKeys("Skar");
+            LastName.SendKeys("Baug");
             IWebElement Email = driver.FindElement(By.Id("Email"));
-            Email.SendKeys("cecilieskar@hotmail.com");
+            Email.SendKeys("eirikbaug@hotmail.com");
             IWebElement password = driver.FindElement(By.Id("Password"));
             password.SendKeys("#Passord1");
             IWebElement conPassword = driver.FindElement(By.Id("ConfirmPassword"));
@@ -65,19 +67,52 @@ namespace Team28DeliveryTests2
             Country.SendKeys("Australia");
             driver.FindElement(By.Id("Register")).Click();
 
-        }
-
-        [Test]
-        public void LogInUser()
-        {
-            driver.Navigate().GoToUrl("http://ifb299team28delivery.azurewebsites.net/Account/Login");
+            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Login");
             IWebElement username = driver.FindElement(By.Id("Email"));
-            username.SendKeys("cecilieskar@hotmail.com");
-            IWebElement password = driver.FindElement(By.Id("Password"));
-            password.SendKeys("#Passord1");
+            username.SendKeys("eirikbaug@hotmail.com");
+            IWebElement password1 = driver.FindElement(By.Id("Password"));
+            password1.SendKeys("#Passord1");
             driver.FindElement(By.Id("LogIn")).Click();
 
+            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Home/Order");
+            IWebElement pStreetAddress = driver.FindElement(By.Id("Pickup_StreetAddress"));
+            pStreetAddress.SendKeys("14 Delvare st");
+            IWebElement pSuburb = driver.FindElement(By.Id("Pickup_Suburb"));
+            pSuburb.SendKeys("Nathan");
+            IWebElement pPostalCode = driver.FindElement(By.Id("Pickup_PostalCode"));
+            pPostalCode.SendKeys("4101");
+            IWebElement pState = driver.FindElement(By.Id("Pickup_State"));
+            pState.SendKeys("Brisbane");
+            IWebElement pCountry = driver.FindElement(By.Id("Pickup_Country"));
+            pCountry.SendKeys("Australia");
+            IWebElement specialInfo = driver.FindElement(By.Id("PackageDetails_SpecialInfo"));
+            specialInfo.SendKeys("Fragile");
+            IWebElement weight = driver.FindElement(By.Id("PackageDetails_Weight"));
+            weight.SendKeys("299");
+            IWebElement priority = driver.FindElement(By.Id("PackageDetails_Priority"));
+            priority.SendKeys("HIGH");
+            IWebElement rName = driver.FindElement(By.Id("PackageDetails_RecieverName"));
+            rName.SendKeys("Monika Hansen");
+            IWebElement pTime = driver.FindElement(By.Id("PackageDetails_PickupTime"));
+            pTime.SendKeys(DateTime.Now.ToString());
+            IWebElement dAddress = driver.FindElement(By.Id("Delivery_StreetAddress"));
+            dAddress.SendKeys("11 Tors veg");
+            IWebElement dSuburb = driver.FindElement(By.Id("Delivery_Suburb"));
+            dSuburb.SendKeys("Nardo");
+            IWebElement dPostalCode = driver.FindElement(By.Id("Delivery_PostalCode"));
+            dPostalCode.SendKeys("7011");
+            IWebElement dState = driver.FindElement(By.Id("Delivery_State"));
+            dState.SendKeys("Trondheim");
+            IWebElement dCountry = driver.FindElement(By.Id("Delivery_Country"));
+            dCountry.SendKeys("Norway");
+            driver.FindElement(By.Id("submit")).Click();
+
+            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Manage/ViewOrders");
+
+
         }
+
+       
 
 
 
