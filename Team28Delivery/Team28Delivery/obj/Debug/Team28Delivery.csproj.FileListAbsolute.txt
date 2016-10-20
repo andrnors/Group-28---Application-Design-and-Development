@@ -571,6 +571,6 @@ C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-D
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.dll
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.pdb
+C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache
