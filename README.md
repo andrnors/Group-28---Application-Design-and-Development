@@ -1,8 +1,6 @@
 # Group-28---Application-Design-and-Development
 
-Website can be reached at http://28deliveryifb299.azurewebsites.net/Manage/ViewOrders
-
-
+Website can be reached at http://28deliveryifb299.azurewebsites.net/
 
 Scrum board can be reached at: 
 https://trello.com/b/niVArlMr/iab330-the-28
