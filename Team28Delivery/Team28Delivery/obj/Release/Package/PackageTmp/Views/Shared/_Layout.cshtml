@@ -46,9 +46,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - The 28 Delivery</p>
-            @Html.ActionLink("Dashboard", "Index", "Packages", new { Area = "Employee" }, new { })
-
+            <p>&copy; @DateTime.Now.Year - The 28 Delivery - @Html.ActionLink("Dashboard", "Index", "Packages", new { Area = "Employee" }, new { })</p>
         </footer>
 
     </div>
