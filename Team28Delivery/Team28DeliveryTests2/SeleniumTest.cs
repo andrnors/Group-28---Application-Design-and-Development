@@ -45,11 +45,11 @@ namespace Team28DeliveryTests2
         {
             driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Register");
             IWebElement FirstName = driver.FindElement(By.Id("FirstName"));
-            FirstName.SendKeys("Henrik");
+            FirstName.SendKeys("Lars");
             IWebElement LastName = driver.FindElement(By.Id("LastName"));
             LastName.SendKeys("Baug");
             IWebElement Email = driver.FindElement(By.Id("Email"));
-            Email.SendKeys("henrikbaug@hotmail.com");
+            Email.SendKeys("larsbaug@hotmail.com");
             IWebElement password = driver.FindElement(By.Id("Password"));
             password.SendKeys("#Passord1");
             IWebElement conPassword = driver.FindElement(By.Id("ConfirmPassword"));
@@ -70,7 +70,7 @@ namespace Team28DeliveryTests2
 
             driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Login");
             IWebElement username = driver.FindElement(By.Id("Email"));
-            username.SendKeys("eirikbaug@hotmail.com");
+            username.SendKeys("larsbaug@hotmail.com");
             IWebElement password1 = driver.FindElement(By.Id("Password"));
             password1.SendKeys("#Passord1");
             driver.FindElement(By.Id("LogIn")).Click();
