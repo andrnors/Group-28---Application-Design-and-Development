@@ -477,7 +477,6 @@ C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28D
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.dll
 C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.pdb
-C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\ApplicationInsights.config
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\roslyn\csc.exe
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\bin\roslyn\csc.exe.config
@@ -574,3 +573,4 @@ C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-D
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.dll
 C:\Users\ingrskar\Documents\QUT\AppDesAndDev\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.pdb
+C:\Users\Andreas\Documents\Group-28---Application-Design-and-Development\Team28Delivery\Team28Delivery\obj\Debug\Team28Delivery.csprojResolveAssemblyReference.cache

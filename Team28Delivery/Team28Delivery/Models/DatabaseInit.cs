@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Text;
+using System.Xml;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -15,6 +18,16 @@ namespace Team28Delivery.Models
     {
         protected override void Seed(ApplicationDbContext context)
         {
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                using (var writer = new XmlTextWriter(@"c:\Documents\Model.edmx", Encoding.Default))
+                {
+                    EdmxWriter.WriteEdmx(ctx, writer);
+                }
+            }
+
+
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 

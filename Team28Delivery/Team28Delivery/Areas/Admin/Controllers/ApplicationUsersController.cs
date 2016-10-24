@@ -162,7 +162,7 @@ namespace Team28Delivery.Areas.Admin.Controllers
                 user.Phone = applicationUser.Phone;
                 user.Email = applicationUser.Email;
                 user.UserName = applicationUser.UserName;
-                db.Entry(applicationUser).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
 
 
                 // This does not work

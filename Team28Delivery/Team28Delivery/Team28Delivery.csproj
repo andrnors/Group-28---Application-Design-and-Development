@@ -342,6 +342,7 @@
     <None Include="Properties\PublishProfiles\IFB299Team28Delivery - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Team28Delivery - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Team28Delivery.pubxml" />
+    <None Include="Properties\PublishProfiles\Team28DeliveryRelease2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />

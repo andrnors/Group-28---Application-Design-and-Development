@@ -22,7 +22,7 @@ namespace Team28Delivery.Models.Tests
                 Timestap = new DateTime(2016, 10, 16),
                 OrderPriority = "HIGH",
                 ReadyForPickUpTime = new DateTime(2016, 11, 17),
-                OrderStatus = "Order Recieved"
+                OrderStatus = Status.Recieved
 
             };
 
@@ -35,7 +35,7 @@ namespace Team28Delivery.Models.Tests
                     Timestap = new DateTime(2016, 11, 17),
                     OrderPriority = "HIGH",
                     ReadyForPickUpTime = new DateTime(2016, 06, 01),
-                    OrderStatus = "Order Recieved"
+                    OrderStatus = Status.Recieved
                 } ,
                 new Orders
                {
@@ -43,7 +43,7 @@ namespace Team28Delivery.Models.Tests
                     Timestap = new DateTime(2016, 07, 16),
                     OrderPriority = "LOW",
                     ReadyForPickUpTime = new DateTime(2016, 11, 17),
-                    OrderStatus = "Order Recieved"
+                    OrderStatus = Status.Recieved
                 } ,
                 new Orders
                 {
@@ -51,7 +51,7 @@ namespace Team28Delivery.Models.Tests
                     Timestap = new DateTime(2016, 10, 16),
                     OrderPriority = "LOW",
                     ReadyForPickUpTime = new DateTime(2016, 11, 17),
-                    OrderStatus = "Order Recieved"
+                    OrderStatus = Status.Recieved
                 }}.AsQueryable();
 
             var dbSetMock = new Mock<IDbSet<Orders>>();
