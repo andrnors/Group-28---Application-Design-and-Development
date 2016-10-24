@@ -23,7 +23,7 @@ namespace Team28Delivery.Models
         public int PickupAddressID { get; set; }
         public DateTime ReadyForPickUpTime { get; set; }
         public DateTime? WarehouseArrivalTime { get; set; }
-        public string OrderStatus { get; set; }
+        public Status OrderStatus { get; set; }
         public string OrderPriority { get; set; }
         public DateTime? WarehouseDepartureTime { get; set; }
 
@@ -84,11 +84,11 @@ namespace Team28Delivery.Models
     // Status class for tracking
     public enum Status
     {
-        Recieved, Shipped, Completed
+        Recieved=0, Shipped=1, Completed=2
     }
     // Priority class for Priority of packages
     public enum Priority
     {
-        Normal, High
+        Normal=0, High=1
     }
 }

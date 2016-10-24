@@ -116,9 +116,9 @@ namespace Team28Delivery.Controllers
                 {
                     PickupAddressID = pickup.AddressID,
                     Timestap = DateTime.Now,
-                    OrderPriority = orderModel.PackageDetails.Priority,
+                    OrderPriority = orderModel.PackageDetails.Priority.ToString(),
                     ReadyForPickUpTime = orderModel.PackageDetails.PickupTime,
-                    OrderStatus = "Order Recieved"
+                    OrderStatus = Status.Recieved
 
                 };
 
