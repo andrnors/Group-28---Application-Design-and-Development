@@ -12,18 +12,28 @@ namespace Team28Delivery.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        /// <summary>
+        /// GETs homepage
+        /// </summary>
+        /// <returns>HomePage</returns>
         public ActionResult Index()
         {
             return View();
         }
-
+        /// <summary>
+        /// GETs About page
+        /// </summary>
+        /// <returns>About page</returns>
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        /// <summary>
+        /// GETs contact page
+        /// </summary>
+        /// <returns>Contact Page</returns>
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -31,13 +41,22 @@ namespace Team28Delivery.Controllers
             return View();
         }
 
+        /// <summary>
+        /// GETs order page
+        /// </summary>
+        /// <returns>Order page</returns>
         [Authorize(Roles = "Customer,Employee, Admin")]
         public ActionResult Order()
         {
             return View();
         }
 
-
+        /// <summary>
+        /// POST method for placing an order.
+        /// Order details in the form provided will be sent to the database.
+        /// </summary>
+        /// <param name="orderModel"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Customer, Employee, Admin")]
         [HttpPost]
         public ActionResult Order(OrderModel orderModel)
@@ -137,8 +156,11 @@ namespace Team28Delivery.Controllers
         }
 
 
-
+        /// <summary>
         // This method is used to check if an address is in the Addresses table allready
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
         public Addresses isAddressInTable(Addresses address)
         {
             var Addresses = db.Set<Addresses>();

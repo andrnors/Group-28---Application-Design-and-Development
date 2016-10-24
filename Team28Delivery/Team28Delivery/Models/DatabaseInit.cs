@@ -7,10 +7,13 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Team28Delivery.Models
-{
-    // Drops databse every time 
-    // This is to ensure that the roleManager is doing it job
-    // adn because we don't want the database to fill up with crap while debuging
+{ 
+    /// <summary>
+    /// Inits the database
+    /// Drops the entire database if the model changes
+    /// This will keep it consistent
+    /// Works great when we are devloping
+    /// </summary>
     public class DatabaseInit : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
@@ -18,12 +21,15 @@ namespace Team28Delivery.Models
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
+            // Code below generates one employee and one admin.
+            // Adds both to the database
+            
 
             roleManager.Create(new IdentityRole("Customer"));  // Customer role
             roleManager.Create(new IdentityRole("Employee")); // Employee role
             roleManager.Create(new IdentityRole("Admin")); // Admin role
 
-            var EmployeeAddress = new Addresses
+            var EmployeeAddress = new Addresses  
             {
                 Suburb = "West End",
                 State = "Queensland",

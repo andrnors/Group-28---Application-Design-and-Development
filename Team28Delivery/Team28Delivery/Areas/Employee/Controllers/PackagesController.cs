@@ -16,6 +16,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Employee/Packages
+        /// <summary>
+        /// GETs index page the Order Management page 
+        /// </summary>
+        /// <param name="fromDate"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Index(DateTime? fromDate)
         {
@@ -32,6 +37,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // GET: Employee/Packages/Details/5
+        /// <summary>
+        /// GETs details page about selected order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Details(int? id)
         {
@@ -57,6 +67,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
 
 
         // GET: Employee/Packages/Edit/5
+        /// <summary>
+        /// GETs Edit order page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Page with a form with all order details</returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Edit(int? id)
         {
@@ -82,8 +97,12 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // POST: Employee/Packages/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// POST Method for editing orders
+        /// Will update the database with the form sent in when save/submit button is pressed
+        /// </summary>
+        /// <param name="packages"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee, Admin")]
@@ -92,11 +111,13 @@ namespace Team28Delivery.Areas.Employee.Controllers
           
             if (ModelState.IsValid)
             {
+                // Manualy updates all entries in the form. 
+                // Does the same thing every field
                 var package = db.Packages.Find(packages.PackageID);
                 package.RecieversName = packages.RecieversName;
                 package.Weight = packages.Weight;
                 package.SpecialInfo = packages.SpecialInfo;
-                db.Entry(package).State = EntityState.Modified;
+                db.Entry(package).State = EntityState.Modified;  // Saves modified state 
 
                 var order = db.Orders.Find(packages.OrderID);
                 order.WarehouseArrivalTime = packages.Order.WarehouseArrivalTime;
@@ -122,14 +143,19 @@ namespace Team28Delivery.Areas.Employee.Controllers
                 db.Entry(deliverAddress).State = EntityState.Modified;
 
 
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                db.SaveChanges(); // Saves chagnes
+                return RedirectToAction("Index"); // returns to Index page
             }
 
             return View(packages);
         }
 
         // GET: Employee/Packages/Delete/5
+        /// <summary>
+        /// GETs page where you can delete an order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Delete(int? id)
         {
@@ -146,6 +172,11 @@ namespace Team28Delivery.Areas.Employee.Controllers
         }
 
         // POST: Employee/Packages/Delete/5
+        /// <summary>
+        /// POST method for actually deleting an order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee, Admin")]

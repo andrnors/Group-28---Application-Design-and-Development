@@ -17,6 +17,13 @@ namespace Team28Delivery.Areas.Admin.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Admin/ApplicationUsers
+         /// <summary>
+         ///  GETs Users in the database, and show basic userdetails in table
+         /// Searchstring is searchable value for search bar on the page.
+         /// Searches after emails.
+         /// </summary>
+         /// <param name="searchstring"></param>
+         /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Index(string searchstring)
         { 
@@ -30,6 +37,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // GET: Admin/ApplicationUsers/Details/5
+        /// <summary>
+        /// GETs user details for the user with that id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Details(string id)
         {
@@ -46,7 +58,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // GET: Admin/ApplicationUsers/Create
+        /// <summary>
         // This function takes you to the page where Admins are allowed to make users Employees
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Admin")]
         public ActionResult Create(string id)
         {
@@ -65,8 +81,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // POST: Admin/ApplicationUsers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Make a normal user to an Employee. USER UPGADE
+        /// </summary>
+        /// <param name="applicationUser"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -93,6 +112,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // GET: Admin/ApplicationUsers/Edit/5
+        /// <summary>
+        /// GETs user with that Id and shows all details in a form
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Edit(string id)
         {
@@ -111,8 +135,12 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // POST: Admin/ApplicationUsers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// POST method for updating user profiles.
+        /// Edit details on profile selected
+        /// </summary>
+        /// <param name="applicationUser"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee, Admin")]
@@ -130,6 +158,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // GET: Admin/ApplicationUsers/Delete/5
+        /// <summary>
+        /// GETs Delete user page
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Authorize(Roles = "Employee, Admin")]
         public ActionResult Delete(string id)
         {
@@ -146,6 +179,11 @@ namespace Team28Delivery.Areas.Admin.Controllers
         }
 
         // POST: Admin/ApplicationUsers/Delete/5
+        /// <summary>
+        /// Actually deletes a user from the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Employee, Admin")]

@@ -344,8 +344,7 @@ namespace Team28Delivery.Controllers
             ApplicationUser user = manager.FindByIdAsync(User.Identity.GetUserId()).Result;
             return View(user);
         }
-
-        // GET: Manage/Edit/
+        
         public async Task<ActionResult> Edit()
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
@@ -354,6 +353,12 @@ namespace Team28Delivery.Controllers
             return View(user);
         }
         // POST: Manage/Edit/
+        /// <summary>
+        /// Edit users own details.
+        /// Loged in user can change his/hers own details
+        /// </summary>
+        /// <param name="applicationUser"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ApplicationUser applicationUser)
@@ -383,6 +388,11 @@ namespace Team28Delivery.Controllers
         }
 
         // GET Manage/ViewOrders
+        /// <summary>
+        /// GETs the view your own orders page.
+        /// Users can see all their own orders
+        /// </summary>
+        /// <returns></returns>
         public async Task<ActionResult> ViewOrders()
         {
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
@@ -394,6 +404,12 @@ namespace Team28Delivery.Controllers
             return View(packages.ToList());
         }
 
+        /// <summary>
+        /// GET Order details for the user that are loged in
+        /// Shows all details for selected order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<ActionResult> ViewOrderDetails(int id)
         {
             if (id == null)

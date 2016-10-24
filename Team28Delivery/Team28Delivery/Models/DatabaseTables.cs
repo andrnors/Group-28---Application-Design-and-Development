@@ -5,9 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-// All tables for the database are defined here, EXCEPT Users table, that is in IdentityModels
 namespace Team28Delivery.Models
 {
+    /// <summary>
+    /// All tables for the database are defined here, EXCEPT Users table, that is in IdentityModels
+    /// </summary>
+
     // Table for orders
     [Table("Orders")]
     public class Orders
