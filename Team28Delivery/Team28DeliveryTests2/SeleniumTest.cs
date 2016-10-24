@@ -31,10 +31,11 @@ namespace Team28DeliveryTests2
             IWebElement username  = driver.FindElement(By.Id("Email"));
             username.SendKeys("admin@28delivery.au");
             IWebElement password = driver.FindElement(By.Id("Password"));
-            password.SendKeys("#Passord1");
+            password.SendKeys("#Password1");
             driver.FindElement(By.Id("LogIn")).Click();
 
-            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Login");
+            driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Admin/ApplicationUsers");
+
 
         }
 
@@ -44,11 +45,11 @@ namespace Team28DeliveryTests2
         {
             driver.Navigate().GoToUrl("http://28deliveryifb299.azurewebsites.net/Account/Register");
             IWebElement FirstName = driver.FindElement(By.Id("FirstName"));
-            FirstName.SendKeys("Eirik");
+            FirstName.SendKeys("Henrik");
             IWebElement LastName = driver.FindElement(By.Id("LastName"));
             LastName.SendKeys("Baug");
             IWebElement Email = driver.FindElement(By.Id("Email"));
-            Email.SendKeys("eirikbaug@hotmail.com");
+            Email.SendKeys("henrikbaug@hotmail.com");
             IWebElement password = driver.FindElement(By.Id("Password"));
             password.SendKeys("#Passord1");
             IWebElement conPassword = driver.FindElement(By.Id("ConfirmPassword"));
@@ -91,10 +92,10 @@ namespace Team28DeliveryTests2
             weight.SendKeys("299");
             IWebElement priority = driver.FindElement(By.Id("PackageDetails_Priority"));
             priority.SendKeys("HIGH");
+            IJavaScriptExecutor js = driver as IJavaScriptExecutor;
+            js.ExecuteScript("$('#PackageDetails.PickupTimegfhjk').click();");
             IWebElement rName = driver.FindElement(By.Id("PackageDetails_RecieverName"));
             rName.SendKeys("Monika Hansen");
-            IWebElement pTime = driver.FindElement(By.Id("PackageDetails_PickupTime"));
-            pTime.SendKeys(DateTime.Now.ToString());
             IWebElement dAddress = driver.FindElement(By.Id("Delivery_StreetAddress"));
             dAddress.SendKeys("11 Tors veg");
             IWebElement dSuburb = driver.FindElement(By.Id("Delivery_Suburb"));
