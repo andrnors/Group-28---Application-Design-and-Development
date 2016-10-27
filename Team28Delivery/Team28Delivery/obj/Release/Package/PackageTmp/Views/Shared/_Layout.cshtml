@@ -35,7 +35,6 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Order", "Order", "Home")</li>
-                    <li>@Html.ActionLink("CustomerUser", "Index", "CustomerUser")</li>
 
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -46,9 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - The 28 Delivery</p>
-            @Html.ActionLink("Dashboard", "Index", "Packages", new { Area = "Employee" }, new { })
-
+            <p>&copy; @DateTime.Now.Year - The 28 Delivery - @Html.ActionLink("Dashboard", "Index", "Packages", new { Area = "Employee" }, new { })</p>
         </footer>
 
     </div>

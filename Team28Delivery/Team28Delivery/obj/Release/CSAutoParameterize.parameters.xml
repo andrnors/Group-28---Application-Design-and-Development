@@ -6,4 +6,7 @@
   <parameter name="Team28Delivery.Models.CustumDBContext-Web.config Connection String" description="Team28Delivery.Models.CustumDBContext Connection String used in web.config by the application to access the database." defaultValue="Team28Delivery.Models.CustumDBContext_ConnectionString" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Andreas\\Documents\\Group-28---Application-Design-and-Development\\Team28Delivery\\Team28Delivery\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Team28Delivery.Models.CustumDBContext']/@connectionString" />
   </parameter>
+  <parameter name="Team28Delivery.Models.CustumEmDBContext-Web.config Connection String" description="Team28Delivery.Models.CustumEmDBContext Connection String used in web.config by the application to access the database." defaultValue="Team28Delivery.Models.CustumEmDBContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andreas\\Documents\\Group-28---Application-Design-and-Development\\Team28Delivery\\Team28Delivery\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Team28Delivery.Models.CustumEmDBContext']/@connectionString" />
+  </parameter>
 </parameters>

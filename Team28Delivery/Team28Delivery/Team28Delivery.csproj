@@ -341,6 +341,7 @@
     <Content Include="Areas\Admin\Views\ApplicationUsers\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ApplicationUsers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ApplicationUsers\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\28DeliveryIFB299 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\IFB299Team28Delivery - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Team28Delivery - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Team28Delivery.pubxml" />
